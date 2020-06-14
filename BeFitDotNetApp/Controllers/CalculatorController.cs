@@ -16,5 +16,18 @@ namespace BeFitDotNet.Controllers
 
             return Calculator.CalculateBMI(calculatorForm.Weight, calculatorForm.Height);
         }
+
+        [HttpPost("/correct-weight")]
+        public string CalculateCorrectWeight(CalculatorForm calculatorForm)
+        {
+            CalculatorHelper.CheckHeightValueCorrectness(calculatorForm.Height);
+
+            var lowestCorrectWeight = Calculator.CalculateLowestCorrectWeight(calculatorForm.Height);
+            var highestCorrectWeight = Calculator.CalculateHighestCorrectWeight(calculatorForm.Height);
+
+            string correctWeightRange = $"{lowestCorrectWeight} - {highestCorrectWeight}";
+
+            return correctWeightRange;
+        }
     }
 }
