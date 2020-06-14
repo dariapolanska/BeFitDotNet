@@ -1,16 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BeFitDotNet.Helpers;
+using BeFitDotNet.Services;
+using BeFitDotNet.WebModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BeFitDotNet.Controllers
 {
+    [Route("/")]
     public class CalculatorController : Controller
     {
-        public IActionResult Index()
+        [HttpPost("/bmi")]
+        public double CalculateBMI(CalculatorForm calculatorForm)
         {
-            return View();
+            CalculatorHelper.CheckWeightValueCorrectness(calculatorForm.Weight);
+            CalculatorHelper.CheckHeightValueCorrectness(calculatorForm.Height);
+
+            return Calculator.CalculateBMI(calculatorForm.Weight, calculatorForm.Height);
         }
     }
 }
