@@ -3,11 +3,11 @@
 It is an application for people, who would like to be healthy, reduce or increase the weight.
 
 ## Task list
-- [x] calculate BMI
-- [x] check correct weight
+- [x] calculating BMI
+- [x] finding correct weight
 - [ ] unit tests
-- [ ] calculate BMR
-- [ ] calculate macronutrients
+- [ ] calculating BMR
+- [ ] calculating macronutrients
 - [ ] users database
 - [ ] product database, recipes
 - [ ] creating menu
