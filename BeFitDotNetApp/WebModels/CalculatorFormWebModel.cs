@@ -1,10 +1,16 @@
 ﻿namespace BeFitDotNet.WebModels
 {
+    public enum Sex
+    {
+        Woman,
+        Man
+    }
+
     public class CalculatorForm
     {
         public int Age { get; set; } = 25;
 
-        public bool Sex { get; set; } = false;
+        public Sex Sex { get; set; } = 0;
 
         public float Weight { get; set; } = 60f;
 

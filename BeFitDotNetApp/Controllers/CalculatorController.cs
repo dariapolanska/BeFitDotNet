@@ -1,5 +1,4 @@
-﻿using BeFitDotNet.Helpers;
-using BeFitDotNet.Services;
+﻿using BeFitDotNet.Services;
 using BeFitDotNet.WebModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,26 +7,23 @@ namespace BeFitDotNet.Controllers
     [Route("/")]
     public class CalculatorController : Controller
     {
-        [HttpPost("/bmi")]
-        public double CalculateBMI(CalculatorForm calculatorForm)
-        {
-            CalculatorHelper.CheckWeightValueCorrectness(calculatorForm.Weight);
-            CalculatorHelper.CheckHeightValueCorrectness(calculatorForm.Height);
+        private readonly ICalculatorService _calculatorService;
 
-            return Calculator.CalculateBMI(calculatorForm.Weight, calculatorForm.Height);
+        public CalculatorController(ICalculatorService calculatorService)
+        {
+            _calculatorService = calculatorService;
         }
 
+        [HttpPost("/bmi")]
+        public double CalculateBMI(CalculatorForm calculatorForm) =>
+            _calculatorService.CalculateBMI(calculatorForm.Weight, calculatorForm.Height);
+
         [HttpPost("/correct-weight")]
-        public string CalculateCorrectWeight(CalculatorForm calculatorForm)
+        public string CalculateExtremesOfCorrectWeight(CalculatorForm calculatorForm)
         {
-            CalculatorHelper.CheckHeightValueCorrectness(calculatorForm.Height);
-
-            var lowestCorrectWeight = Calculator.CalculateLowestCorrectWeight(calculatorForm.Height);
-            var highestCorrectWeight = Calculator.CalculateHighestCorrectWeight(calculatorForm.Height);
-
-            string correctWeightRange = $"{lowestCorrectWeight} - {highestCorrectWeight}";
-
-            return correctWeightRange;
+            var extremes = _calculatorService.CalculateExtremesOfHealthyWeight(calculatorForm.Height);
+            
+            return $"{extremes["min"]} - {extremes["max"]}";
         }
     }
 }
