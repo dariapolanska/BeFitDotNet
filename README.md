@@ -5,7 +5,7 @@ It is an application for people, who would like to be healthy, reduce or increas
 ## Task list
 - [x] calculating BMI
 - [x] finding correct weight
-- [ ] unit tests
+- [x] unit tests
 - [ ] calculating BMR
 - [ ] calculating macronutrients
 - [ ] users database
