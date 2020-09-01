@@ -6,7 +6,7 @@
         Man
     }
 
-    public class CalculatorForm
+    public class CalculatorFormWebModel
     {
         public int Age { get; set; } = 25;
 
