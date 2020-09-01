@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BeFitDotNetApp\BeFitDotNet.csproj" />
+    <ProjectReference Include="..\BeFitDotNetApi\BeFitDotNet.csproj" />
   </ItemGroup>
 
 </Project>
