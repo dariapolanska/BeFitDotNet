@@ -15,11 +15,11 @@ namespace BeFitDotNet.Controllers
             _calculatorService = calculatorService;
         }
 
-        [HttpPost("/bmi")]
+        [HttpPost("/calculate-bmi")]
         public double CalculateBMI(CalculatorFormWebModel calculatorForm) =>
             _calculatorService.CalculateBMI(calculatorForm.Weight, calculatorForm.Height);
 
-        [HttpPost("/correct-weight")]
+        [HttpPost("/calculate-healthy-weight")]
         public IDictionary<string, double> CalculateExtremesOfCorrectWeight(
                 CalculatorFormWebModel calculatorForm
             ) => _calculatorService.CalculateExtremesOfHealthyWeight(calculatorForm.Height);
