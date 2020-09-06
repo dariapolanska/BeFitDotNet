@@ -2,12 +2,11 @@
 [UNDER DEVELOPMENT]\
 It is an application for people, who would like to be healthy, reduce or increase the weight.
 
-## Task list
+## Feature list
 - [x] calculating BMI
 - [x] finding correct weight
-- [x] unit tests
+- [ ] users database
 - [ ] calculating BMR
 - [ ] calculating macronutrients
-- [ ] users database
 - [ ] product database, recipes
 - [ ] creating menu
