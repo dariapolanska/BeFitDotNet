@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>{{title}}</h2>
+    <p>Check your BMI and the healthy weight</p>
+    <label for="weight">Your weight [kg]</label>
+    <input [(ngModel)]="weight" type="number" min="22.5" max="250" step="0.1"
+           pattern="^\d+\.\d{1}" id="weight" name="weight" required>
+    <label for="height">Your height [m]</label>
+    <input [(ngModel)]="height" type="number" min="1.2" max="2.5" step="0.01"
+           pattern="^\d+\.\d{1,2}" id="height" name="height" required>
+    <button (click)="onClickCalculate()">Calculate</button>
+    <label for="BMI">Your BMI:</label>
+    <div class="results">{{BMI}}</div>
+    <label for="BMI">The healthy weight for a person of your height:</label>
+    <div class="results">{{healthyWeight.min}} - {{healthyWeight.max}}</div>
+  </body>
+</html>
