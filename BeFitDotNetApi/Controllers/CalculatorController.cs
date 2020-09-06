@@ -1,4 +1,5 @@
-﻿using BeFitDotNet.Services;
+﻿using System.Collections.Generic;
+using BeFitDotNet.Services;
 using BeFitDotNet.WebModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +20,8 @@ namespace BeFitDotNet.Controllers
             _calculatorService.CalculateBMI(calculatorForm.Weight, calculatorForm.Height);
 
         [HttpPost("/correct-weight")]
-        public string CalculateExtremesOfCorrectWeight(CalculatorFormWebModel calculatorForm)
-        {
-            var extremes = _calculatorService.CalculateExtremesOfHealthyWeight(calculatorForm.Height);
-            
-            return $"{extremes["min"]} - {extremes["max"]}";
-        }
+        public IDictionary<string, double> CalculateExtremesOfCorrectWeight(
+                CalculatorFormWebModel calculatorForm
+            ) => _calculatorService.CalculateExtremesOfHealthyWeight(calculatorForm.Height);
     }
 }
